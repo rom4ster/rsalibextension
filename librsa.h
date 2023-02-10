@@ -7,11 +7,12 @@
 #include <iostream>
 #include <fstream>
 #include "rsa.h"
+#include <vector>
 
-#define DEFAULT_PUB_FILE "public"
-#define DEFAULT_PRIV_FILE "private"
-#define DEFAULT_MOD_FILE "modulus"
-#define DEFAULT_PAD "-"
+#define DEFAULT_PUB_FILE "./public"
+#define DEFAULT_PRIV_FILE "./private"
+#define DEFAULT_MOD_FILE "./modulus"
+#define DEFAULT_PAD '-'
 
 #define MPUINT_SIZE 16
 
@@ -21,10 +22,7 @@ public:
     mpuint *  d;
     mpuint *  e;
     mpuint *  n;
-    std::string pubFile;
-    std::string privFile;
-    std::string modFile;
-    std::string pad;
+    char pad;
 
     unsigned short * parseFile(std::string fileName);
     unsigned short * parseMsg(std::string msg);
@@ -34,7 +32,7 @@ public:
 
 //public:
 
-    explicit Librsa(std::string pubFile = DEFAULT_PUB_FILE, std::string privFile = DEFAULT_PRIV_FILE, std::string modFile = DEFAULT_MOD_FILE, std::string pad = DEFAULT_PAD) {
+    explicit Librsa(std::string pubFile = DEFAULT_PUB_FILE, std::string privFile = DEFAULT_PRIV_FILE, std::string modFile = DEFAULT_MOD_FILE, char pad = DEFAULT_PAD) {
 
         this->e = new mpuint(MPUINT_SIZE);
         this->d = new mpuint(MPUINT_SIZE);
@@ -43,6 +41,7 @@ public:
         e->value = parseFile(pubFile);
         d->value = parseFile(privFile);
         n->value = parseFile(modFile);
+        this->pad = pad;
 
     }
 
@@ -50,10 +49,7 @@ public:
     std::string decrypt(std::string msg);
 
 
+    std::string asString(std::vector<unsigned short *> v);
 
-
-
-
-
-
+    std::vector<unsigned short *> fromString(std::string s);
 };

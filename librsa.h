@@ -24,7 +24,7 @@ private:
     char pad;
 
     unsigned short * parseFile(std::string fileName);
-    unsigned short * parseMsg(std::string msg);
+    static unsigned short * parseMsg(std::string msg);
     std::vector<std::string> groupMessage(std::string msg);
     [[nodiscard]] std::string makeString(std::vector<unsigned short *> v) const;
 

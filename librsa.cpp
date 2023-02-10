@@ -33,7 +33,6 @@ unsigned short *Librsa::parseFile(std::string fileName) {
 }
 
 std::vector<std::string> Librsa::groupMessage(std::string msg) {
-    // take n length message and group by lengths of 16 padding with 0x0
     std::vector<std::string> v;
     std::string msgg = msg;
     unsigned int msgMod = 0;
@@ -68,7 +67,7 @@ unsigned short *Librsa::parseMsg(std::string msg) {
 
 
 
-std::string Librsa::makeString(std::vector<unsigned short *> v) {
+std::string Librsa::makeString(std::vector<unsigned short *> v) const {
     std::string s = "";
     for (auto & i : v) {
         for (int j = 0; j< 16; j++) {
@@ -123,28 +122,6 @@ std::vector<unsigned short *> Librsa::fromString(std::string s) {
 
 }
 
-std::string Librsa::edcrypt(std::string msg, bool encrypt) {
-
-    mpuint * ed = nullptr;
-    ed = encrypt ? e : n;
-    std::vector<std::string> msgs = groupMessage(msg);
-    std::vector<unsigned short *> res;
-    for (const auto & msg : msgs) {
-        auto parsed = parseMsg(msg);
-        auto temp = mpuint(16);
-        temp.value = parsed;
-        auto edr = mpuint(16);
-        EncryptDecrypt(edr,temp,*ed,*n);
-        auto arr = new unsigned short [edr.length];
-        for (int i = 0; i < edr.length; i++) {
-           // std::cout << edr.value[i] << " ";
-            arr[i] = edr.value[i];
-        }
-        //std::cout << std::endl;
-        res.push_back(arr);
-    }
-    return makeString(res);
-}
 
 std::string Librsa::encrypt(std::string msg) {
     std::vector<std::string> msgs = groupMessage(msg);

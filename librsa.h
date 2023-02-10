@@ -17,8 +17,7 @@
 #define MPUINT_SIZE 16
 
 class Librsa {
-public:
-    //private:
+private:
     mpuint *  d;
     mpuint *  e;
     mpuint *  n;
@@ -27,10 +26,9 @@ public:
     unsigned short * parseFile(std::string fileName);
     unsigned short * parseMsg(std::string msg);
     std::vector<std::string> groupMessage(std::string msg);
-    std::string makeString(std::vector<unsigned short *> v);
-    std::string edcrypt(std::string msg, bool encrypt);
+    [[nodiscard]] std::string makeString(std::vector<unsigned short *> v) const;
 
-//public:
+public:
 
     explicit Librsa(std::string pubFile = DEFAULT_PUB_FILE, std::string privFile = DEFAULT_PRIV_FILE, std::string modFile = DEFAULT_MOD_FILE, char pad = DEFAULT_PAD) {
 
@@ -49,7 +47,7 @@ public:
     std::string decrypt(std::string msg);
 
 
-    std::string asString(std::vector<unsigned short *> v);
+    static std::string asString(std::vector<unsigned short *> v);
 
-    std::vector<unsigned short *> fromString(std::string s);
+    static std::vector<unsigned short *> fromString(std::string s);
 };

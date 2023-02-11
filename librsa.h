@@ -27,6 +27,9 @@ private:
     static unsigned short * parseMsg(std::string msg);
     std::vector<std::string> groupMessage(std::string msg);
     [[nodiscard]] std::string makeString(std::vector<unsigned short *> v) const;
+    static std::string asString(std::vector<unsigned short *> v);
+
+    static std::vector<unsigned short *> fromString(std::string s);
 
 public:
 
@@ -47,7 +50,5 @@ public:
     std::string decrypt(std::string msg);
 
 
-    static std::string asString(std::vector<unsigned short *> v);
 
-    static std::vector<unsigned short *> fromString(std::string s);
 };

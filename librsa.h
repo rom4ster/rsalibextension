@@ -48,6 +48,11 @@ public:
         this->pad = std::string(tmp);
 
     }
+    ~Librsa() {
+        delete d;
+        delete e;
+        delete n;
+    }
 
     std::string encrypt(std::string msg);
     std::string decrypt(std::string msg);

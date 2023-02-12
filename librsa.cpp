@@ -138,15 +138,20 @@ std::string Librsa::encrypt(std::string msg) {
             arr[i] = edr->value[i];
         }
         res.push_back(arr);
+        delete edr;
+        delete temp;
     }
-    return asString(res);
+    auto ret = asString(res);
+    for (int i = 0; i < res.size(); i ++) delete[] (res[i]);
+
+    return ret;
 }
 std::string Librsa::decrypt(std::string msg) {
     std::vector<unsigned short *> res;
     std::vector<unsigned short *> msgs = fromString(msg);
-    for (const auto & msg : msgs) {
+    for (const auto & mssg : msgs) {
         auto temp = new mpuint(16);
-        temp->value = msg;
+        temp->value = mssg;
         auto edr = new mpuint(16);
         EncryptDecrypt(*edr,*temp,*d,*n);
         auto arr = new unsigned short [edr->length];
@@ -155,10 +160,15 @@ std::string Librsa::decrypt(std::string msg) {
             arr[i] = edr->value[i];
         }
         res.push_back(arr);
-
+        delete edr;
 
     }
-    return makeString(res);
+
+
+
+    auto ret = makeString(res);
+    for (auto & re : res) delete[] re;
+    return ret;
 }
 
 

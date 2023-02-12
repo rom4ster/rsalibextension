@@ -1,6 +1,6 @@
 #include <iostream>
 #include "librsa.h"
-#include "mpuint.h"
+
 
 
 
@@ -18,7 +18,7 @@ int main() {
      std::cout << "ENCRYPT --> " << m << std::endl;
      auto r = rsa.decrypt(m);
     std::cout << "DECRYPT --> " <<  r << std::endl;
-    exit(2);
+    exit(0);
 
 
 

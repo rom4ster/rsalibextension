@@ -33,3 +33,47 @@ pad: what character to pad with or '_' by default
 ```
 These functions will take a message and encrypt/decrypt it. Note that the string input in decrypt is actually a hex representation of an unsigned short array
 while in encrypt it is whatever data needs encryption, as a string. 
+
+
+Compilation of this library can be done via cmake. Make will also work however it
+has not been set up. A PR for this would be helpful. Contributions to make 
+this library better would be great. Remember the philosophy of simple and
+beginner-friendly.
+
+Due to the different types of files in this code, it uses 3 licences 
+
+This software is composed of code used from http://www.efgh.com/software/rsa.txt
+This code is in the public domain and therefore free to use for any purpose
+
+Any modifications to these files (such as mpuint.cpp) are distributed under GPL
+All new files except the ones in the following exception list are GPL
+
+Exception List:
+
+    allrightreserved
+
+Any files in the exception list are All Rights Reserved and their usage is
+described in the file itself
+
+
+For all GPL files, the following applies
+
+    librsa, a way to encrypt simply for beginners.
+    Copyright (C) 2023  rom4ster
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+
+
+

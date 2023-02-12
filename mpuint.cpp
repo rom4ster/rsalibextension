@@ -140,7 +140,7 @@ void mpuint::operator *= (const mpuint &n)
     unsigned j;
     for (j = 0; j < n.length; j++)
     {
-      unsigned long product = multiplier[i] * n.value[j];
+      unsigned long product = (unsigned  long) multiplier[i] * (unsigned  long) n.value[j];
       unsigned k = i + j;
       while (product != 0)
       {

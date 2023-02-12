@@ -1,7 +1,11 @@
 #include <stdlib.h>
 #include "rsa.h"
 #include "euclid.h"
+#ifdef _WIN32
 #include "random.h"
+#else
+#include "unirandom.h"
+#endif
 
 /*----------------------------------------------------------------------------
 This function uses Fermat's Theorem 100 times to test the primeness of a

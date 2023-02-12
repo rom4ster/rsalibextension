@@ -21,7 +21,7 @@ private:
     mpuint *  d;
     mpuint *  e;
     mpuint *  n;
-    char pad;
+    std::string pad;
 
     unsigned short * parseFile(std::string fileName);
     static unsigned short * parseMsg(std::string msg);
@@ -42,7 +42,10 @@ public:
         e->value = parseFile(pubFile);
         d->value = parseFile(privFile);
         n->value = parseFile(modFile);
-        this->pad = pad;
+        char tmp [2];
+        tmp[0] = pad;
+        tmp[1] = 0x0;
+        this->pad = std::string(tmp);
 
     }
 

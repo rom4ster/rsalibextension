@@ -38,7 +38,7 @@ std::vector<std::string> Librsa::groupMessage(std::string msg) {
     unsigned int msgMod = 0;
     if ( (msgMod = (msg.length() % 16)) != 0 ) {
         for ( int i = 0; i < (16-msgMod); i++) {
-            msgg.append(&pad);
+            msgg.append(pad);
         }
     }
     int pos = 0;
@@ -76,7 +76,7 @@ std::string Librsa::makeString(std::vector<unsigned short *> v) const {
 
         }
     }
-    s.erase(std::remove(s.begin(), s.end(), pad), s.end());
+    s.erase(std::remove(s.begin(), s.end(), pad[0]), s.end());
     return s;
 }
 

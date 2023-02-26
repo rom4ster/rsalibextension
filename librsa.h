@@ -70,5 +70,6 @@ public:
     std::string decrypt(std::string msg);
 
 
-
+    void generateKeys(std::string d, std::string e, std::string n);
+    void generateKeys() { generateKeys("","",""); };
 };

@@ -1,7 +1,5 @@
 /*
 
-    Copyright (C) 2023  rom4ster
-
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
@@ -182,6 +180,64 @@ std::string Librsa::decrypt(std::string msg) {
     auto ret = makeString(res);
     for (auto & re : res) delete[] re;
     return ret;
+}
+
+void Librsa::generateKeys(std::string d, std::string e, std::string n) {
+
+    auto validFiles = false;
+    if (!d.empty() && !e.empty() && !n.empty())  validFiles = true;
+
+    std::ofstream df;
+    std::ofstream ef;
+    std::ofstream nf;
+// jfhdjgnhbfjgfhdj
+// sksdhjenmfjksjrm
+// sjsl;e;wbnv;sdsf
+
+
+
+
+    if (validFiles) {
+        df.open(d);
+        ef.open(e);
+        nf.open(n);
+    }
+
+    std::stringstream ds;
+    std::stringstream es;
+    std::stringstream ns;
+
+
+
+    auto dm = new mpuint(16);
+    auto em = new mpuint(16);
+    auto nm = new mpuint(16);
+
+    GenerateKeys(*dm,*em,*nm);
+
+    for (int i = 0; i < 16; i ++) {
+        ds << ", " << std::hex<<dm->value[i];
+        es << ", " << std::hex<<em->value[i];
+        ns << ", " << std::hex<<nm->value[i];
+    }
+    ds = std::stringstream(ds.str().c_str()+1);
+    es = std::stringstream(es.str().c_str()+1);
+    ns = std::stringstream(ns.str().c_str()+1);
+
+    if (validFiles) {
+        df << ds.str();
+        ef << es.str();
+        nf << ns.str();
+    }
+    df.close();
+    ef.close();
+    nf.close();
+
+    std::cout << ds.str() << std::endl;
+    std::cout << es.str() << std::endl;
+    std::cout << ns.str() << std::endl;
+
+
 }
 
 

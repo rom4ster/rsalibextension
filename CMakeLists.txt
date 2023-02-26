@@ -32,4 +32,7 @@ ELSE()
 ENDIF()
 
 
-add_executable(test test.cpp euclid.cpp mpuint.cpp ${RandomFile} rsa.cpp librsa.cpp)
+add_executable(testRun testRun.cpp euclid.cpp mpuint.cpp ${RandomFile} rsa.cpp librsa.cpp)
+add_executable(testE testEncrypt.cpp euclid.cpp mpuint.cpp ${RandomFile} rsa.cpp librsa.cpp)
+add_executable(testD testDecrypt.cpp euclid.cpp mpuint.cpp ${RandomFile} rsa.cpp librsa.cpp)
+add_executable(generate generateKeys.cpp euclid.cpp mpuint.cpp ${RandomFile} rsa.cpp librsa.cpp)

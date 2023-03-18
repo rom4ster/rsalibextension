@@ -11,7 +11,7 @@ and appended to the result string. After removing the padding character, the res
 Encryption and decryption keys are of length 16 currently and must be in the following format
 
 ```<short>,<short>,<short>...```
-where <short> is a string representing a short, written as hex. 
+where \<short\> is a string representing a short, written as hex. 
 
 The public, private, and modulus files must adhere to this format.
 

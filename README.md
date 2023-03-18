@@ -15,7 +15,7 @@ where \<short\> is a string representing a short, written as hex.
 
 The public, private, and modulus files must adhere to this format.
 
-Currently auto generation of these files is not supported however, the rsa.cpp file does contain a "GenerateKeys" method that can be used for creation of these keys
+Auto generation of public, private ,and modulus files can be done with the generate executable (see CMakeLists.txt) but will only work on windows. On unix, these files will be dummy files. 
 
 Usage:
 
